@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.box {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%),
+                linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    background-blend-mode: multiply;
+    padding: 10px;
+}
+
+.app {
+    max-width: 540px;
+    background-color: #fff;
+    border-radius: 50px;
+    margin: 10px auto;
+    padding: 40px;
+}
+
+.app h2 {
+    color: #36454F;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.task-text {
+  max-width: 200px;
+  white-space: normal;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 40px;
+    background: #edeef0;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 15px;
+    font-size: 18px;
+}
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 40px;
+    background: #36454F;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+strike {
+    text-decoration: line-through;
+    max-width: 200px;
+    color: #999;
+}
+
+input[type="submit"]:hover {
+    background: #2a353d;
+}
+
+.checkbox-form input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #36454F;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 3px;
+    margin-right: 15px;
+}
+
+.check-text {
+    display: flex;
+    align-items: center;
+}
+
+.task-item {
+    background: #f2f2f2;
+    margin-bottom: 10px;
+    padding: 15px 20px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-item a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #36454F;
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .app {
+        width: 90%;
+        padding: 20px;
+    }
+    .row {
+        flex-direction: column;
+        padding: 10px;
+    }
+    input[type="text"] {
+        width: 100%;
+    }
+    input[type="submit"] {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

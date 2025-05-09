@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+<div class="box">
+    <div class="app">
+        <h2>📝 Task Manager</h2>
+
+        <form method="POST" class="row">
+            {% csrf_token %}
+            {{ form.title }}
+            <input type="submit" value="Create Task">
+        </form>
+
+        <div>
+            {% for t in tasks %}
+                <div class="task-item">
+                    <div class="check-text">
+                        <form action="{% url 'toggle' t.id %}" method="POST" class="checkbox-form">
+                            {% csrf_token %}
+                            <input type="checkbox" onchange="this.form.submit()" {% if t.complete %} checked {% endif %}>
+                        </form>
+
+                        {% if t.complete %}
+                            <strike><span class="task-text">{{ t }}</span></strike>
+                        {% else %}
+                            <span class="task-text">{{ t }}</span>
+                        {% endif %}
+
+                    </div>
+                    <div>
+                        <a href="{% url 'update' t.id %}">Update</a>
+                        <a href="{% url 'delete' t.id %}">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

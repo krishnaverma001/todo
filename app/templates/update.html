@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Task</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="box">
+        <div class="app">
+            <h2>Update Task</h2>
+            <form method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                {% csrf_token %}
+                <div class="row">
+                    {{ form.title }}
+                    <button type="submit" style="border-style: none; background-color: #36454F; color: white; padding: 10px 20px; border-radius: 30px; cursor: pointer">Modify</button>
+                </div>
+            </form>
+            <a href="{% url 'index' %}" style="display: inline-block; margin-top: 20px; color: #36454F; text-decoration: underline;">
+                Back to Task List
+            </a>
+        </div>
+    </div>
+</body>
+</html>

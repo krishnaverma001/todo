@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Task</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="box">
+        <div class="app">
+            <h2>Delete Task</h2>
+            <p style="margin-bottom: 20px;">Are you sure you want to delete '<strong>{{ item }}</strong>' ?</p>
+            <form method="POST" style="display: flex; gap: 10px;">
+                {% csrf_token %}
+                <button type="submit" style="border-style: none; border: 2px solid #36454F; background-color: white; color: #36454F; padding: 10px 20px; border-radius: 30px; cursor: pointer">Yes, Delete</button>
+
+                <a href="{% url 'index' %}" style="text-decoration: none; padding: 10px 20px; background-color: #36454F; color: white; border-radius: 30px; cursor: pointer">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
